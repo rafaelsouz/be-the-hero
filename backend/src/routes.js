@@ -3,8 +3,11 @@ import { Router } from 'express';
 import OngController from './controllers/OngController';
 import IncidentController from './controllers/IncidentController';
 import ProfileController from './controllers/ProfileController';
+import SessionController from './controllers/SessionController';
 
 const routes = new Router();
+
+routes.post('/sessions', SessionController.store);
 
 routes.get('/ongs', OngController.index);
 routes.post('/ongs', OngController.store);
