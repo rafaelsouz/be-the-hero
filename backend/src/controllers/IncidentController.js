@@ -16,7 +16,24 @@ export default {
   },
 
   async index(req, res) {
-    const incidents = await conection('incidents').select('*');
+    const { page = 1 } = req.query;
+
+    const [count] = await conection('incidents').count();
+
+    const incidents = await conection('incidents')
+      .join('ongs', 'ongs.id', '=', 'incidents.ong_id')
+      .limit(5)
+      .offset((page - 1) * 5)
+      .select([
+        'incidents.*',
+        'ongs.name',
+        'ongs.email',
+        'ongs.whatsapp',
+        'ongs.city',
+        'ongs.uf',
+      ]);
+
+    res.header('x-Total-Count', count['count(*)']);
 
     return res.json(incidents);
   },
