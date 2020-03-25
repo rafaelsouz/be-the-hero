@@ -4,7 +4,7 @@ import { FiArrowLeft } from 'react-icons/fi';
 
 import logoImg from '../../assets/logo.svg';
 
-// import { Container } from './styles';
+import './styles.css';
 
 export default function Register() {
   return (
@@ -18,9 +18,9 @@ export default function Register() {
             os casos da sua ONG.
           </p>
 
-          <Link className="back-link" to="/register">
+          <Link className="back-link" to="/">
             <FiArrowLeft size={16} color="#e02041" />
-            Não tenho cadastro
+            Voltar para o login
           </Link>
         </section>
 
@@ -29,7 +29,7 @@ export default function Register() {
           <input type="email" placeholder="Email" />
           <input type="text" placeholder="Whatsapp" />
 
-          <div>
+          <div className="input-group">
             <input type="text" placeholder="Cidade" />
             <input type="text" placeholder="UF" style={{ width: 80 }} />
           </div>
