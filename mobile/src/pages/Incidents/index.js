@@ -15,8 +15,8 @@ export default function Incidents() {
 
   const navigation = useNavigation();
 
-  function navigateToDetail() {
-    navigation.navigate('Detail');
+  function navigateToDetail(incident) {
+    navigation.navigate('Detail', { incident });
   }
 
   async function loadIncidents() {
@@ -61,7 +61,7 @@ export default function Incidents() {
             {Intl.NumberFormat('pt-BR', { style:'currency', currency:'BRL'}).format(incident.value)}
           </Text> 
 
-          <TouchableOpacity style={styles.detailsButton} onPress={navigateToDetail}>
+          <TouchableOpacity style={styles.detailsButton} onPress={() => navigateToDetail(incident)}>
             <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
 
             <Feather name="arrow-right" size={18} color="#e02041" />
