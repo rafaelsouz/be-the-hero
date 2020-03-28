@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { celebrate, Segments, Joi } from 'celebrate';
 
 import OngController from './controllers/OngController';
 import IncidentController from './controllers/IncidentController';
@@ -10,11 +11,40 @@ const routes = new Router();
 routes.post('/sessions', SessionController.store);
 
 routes.get('/ongs', OngController.index);
-routes.post('/ongs', OngController.store);
+routes.post(
+  '/ongs',
+  celebrate({
+    [Segments.BODY]: Joi.object().keys({
+      name: Joi.string().required(),
+      email: Joi.string().required().email(),
+      whatsapp: Joi.number().required().min(10).max(11),
+      city: Joi.string().required(),
+      uf: Joi.string().required().length(2),
+    }),
+  }),
+  OngController.store
+);
 
 routes.get('/incidents', IncidentController.index);
 routes.post('/incidents', IncidentController.store);
-routes.delete('/incidents/:id', IncidentController.delete);
+routes.delete(
+  '/incidents/:id',
+  celebrate({
+    [Segments.PARAMS]: Joi.object().keys({
+      id: Joi.number().required(),
+    }),
+  }),
+  IncidentController.delete
+);
 
-routes.get('/profile', ProfileController.index);
+routes.get(
+  '/profile',
+  celebrate({
+    [Segments.HEADERS]: Joi.object({
+      authorization: Joi.string().required(),
+    }).unknown(),
+  }),
+  ProfileController.index
+);
+
 export default routes;
