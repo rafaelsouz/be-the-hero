@@ -1,6 +1,6 @@
 <h1 align="center">
 <br>
-<img src="mobile/src/assets/logo.png" alt="Be the hero">
+<img src="frontend/src/assets/logo.svg" width=250 alt="Be the hero">
 <br>
 <br>
 Be The Hero 🦸‍♂️
