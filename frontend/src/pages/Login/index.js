@@ -6,7 +6,7 @@ import api from '../../services/api';
 
 import './styles.css';
 
-import heroesImg from '../../assets/heroes.png';
+import heroesImg from '../../assets/heroes2.png';
 import logoImg from '../../assets/logo.svg';
 
 export default function Login() {
