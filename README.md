@@ -9,12 +9,12 @@ Be The Hero 🦸‍♂️
 
 <h2 align="center">Site</h2>
 <h3 align="center">
-<img align="center" src="./screenshots/web.png"/>
+<img align="center" width=700 src="./screenshots/web.gif"/>
 </h3>
 <br/>
 <h2 align="center">Aplicativo Mobile</h2>
 <h3 align="center">
-<img align="center" src="./screenshots/mobile.gif"/>
+<img align="center" width=300 src="./screenshots/mobile.gif"/>
 </h3>
 <br/>
 
